@@ -5,6 +5,7 @@ import { Plus } from 'lucide-react'
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 import React from 'react'
 import { MobileSidebar } from './MobileSidebar'
+import { FormPopover } from '@/components/form/form-popover'
 
 export const Navbar = () => {
   return (
@@ -15,12 +16,16 @@ export const Navbar = () => {
             <div className="hidden md:flex">
                 <Logo/>
             </div>
+            <FormPopover align='start' side='bottom' sideOffset={18}>
             <Button variant={"primary"} size={"sm"} className='rounded-sm hidden md:block h-auto py-1.5 px-2'>
                 Create
             </Button>
+            </FormPopover>
+            <FormPopover>
             <Button variant={"primary"} size={"sm"} className='rounded-sm block md:hidden'>
                 <Plus className='h-4 w-4'/>
             </Button>
+            </FormPopover>
             
         </div>
 

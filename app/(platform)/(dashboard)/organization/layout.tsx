@@ -4,7 +4,7 @@ import { Sidebar } from "../_components/Sidebar";
 
 
 
-const OrganisationLayout = ({
+const OrganizationLayout = ({
     children
 }:{
     children: React.ReactNode;
@@ -22,4 +22,4 @@ const OrganisationLayout = ({
   )
 }
 
-export default OrganisationLayout
+export default OrganizationLayout
