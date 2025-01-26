@@ -45,7 +45,7 @@ const lastList = await db.list.findFirst({
     boardId
   },
   orderBy:{
-    order:"asc"
+    order:"desc"
   },
   select:{
     order: true
