@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 
 const headingFont = localFont({
-  src: "../../public/fonts/Calsans.woff2",
+  src: "../../public/fonts/CalSans.woff2",
 });
 
 const textFont = Poppins({
