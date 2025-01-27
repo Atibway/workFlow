@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const headingFont = localFont({
-  src: "../public/fonts/Calsans.woff2",
+  src: "../public/fonts/CalSans.woff2",
 });
 
 export const Logo = () => {
