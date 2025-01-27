@@ -34,6 +34,8 @@ title: true
 
     return NextResponse.json(card)
 } catch (error) {
+    console.log("Internal Error", error);
+    
     return new NextResponse("Internal Error", {status: 500
     })
 }
