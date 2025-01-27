@@ -7,6 +7,8 @@ import { InputType, ReturnType } from "./types";
 import { auth } from "@clerk/nextjs";
 import { CreateSateActions } from "@/lib/create-safe-action";
 import { CreateList } from "./schema";
+import { createAuditLog } from "@/lib/create-audit-log";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 
 
@@ -54,6 +56,13 @@ const newOrder = lastList ? lastList.order + 1 : 1;
     boardId,
     order: newOrder
   }
+ })
+
+ await createAuditLog({
+   entityTitle: list.title,
+   entityId: list.id,
+   entityType: ENTITY_TYPE.LIST,
+   action: ACTION.CREATE
  })
 } catch (error) {
 return {

@@ -6,7 +6,7 @@ import { FormTextarea } from "@/components/form/form-textarea";
 import { Button } from "@/components/ui/button";
 import { useAction } from "@/hooks/use-action";
 import { Plus, X } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams} from "next/navigation";
 import { ElementRef, forwardRef, KeyboardEventHandler, useRef } from "react";
 import { toast } from "sonner";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
@@ -25,7 +25,6 @@ disableEditing,
 isEditing
 }, ref) => {
     const formRef = useRef<ElementRef<"form">>(null);
-    const router = useRouter()
     const params = useParams()
 
     const { execute, fieldError} = useAction(createCard, {

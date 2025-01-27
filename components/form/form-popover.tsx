@@ -15,6 +15,7 @@ import { toast } from "sonner";
 import { FormPicker } from "./form-picker";
 import { ElementRef, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useProModal } from "@/hooks/use-pro-modal";
 
   
 interface FormPopoverProps {
@@ -32,6 +33,7 @@ sideOffset
 }: FormPopoverProps) => {
 const closeRef = useRef<ElementRef<"button">>(null)
 const router = useRouter()
+const proModal = useProModal()
 
   const {execute, fieldError} = useAction(createBoard, {
 onSuccess: (data)=> {
@@ -40,13 +42,8 @@ closeRef.current?.click()
 router.push(`/board/${data.id}`)
 }, 
 onError: (error)=> {
-toast.error(error ,  {
-  style: {
-    backgroundColor: '#ff4d4f', 
-    color: 'white',            
-    border: '1px solid #d32f2f', 
-  },
-});
+toast.error(error);
+proModal.onOpen();
 }
   })
 

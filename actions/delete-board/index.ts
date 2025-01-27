@@ -8,6 +8,10 @@ import { auth } from "@clerk/nextjs";
 import { CreateSateActions } from "@/lib/create-safe-action";
 import { DeleteBoard } from "./schema";
 import { redirect } from "next/navigation";
+import { createAuditLog } from "@/lib/create-audit-log";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
+import { decreaseAvailableCount } from "@/lib/org-limit";
+import { checkSubscription } from "@/lib/subscription";
 
 
 
@@ -20,20 +24,33 @@ import { redirect } from "next/navigation";
 if(!userId || !orgId){
     return {error: "Unauthorized"}
 }
+const isPro = await checkSubscription();
 
 const { id} = data
 
-
+let board
 
 try {
 
-  await db.board.delete({
+board  =  await db.board.delete({
   where: {
     id,
     orgId,
 
   }
  })
+
+ if (!isPro){
+   await decreaseAvailableCount()
+ }
+
+  await createAuditLog({
+    entityTitle: board.title,
+    entityId: board.id,
+    entityType: ENTITY_TYPE.BOARD,
+    action: ACTION.DELETE
+  })
+
 } catch (error) {
 return {
   error: "Failed to Delete."

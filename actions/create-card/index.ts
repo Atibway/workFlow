@@ -7,6 +7,8 @@ import { InputType, ReturnType } from "./types";
 import { auth } from "@clerk/nextjs";
 import { CreateSateActions } from "@/lib/create-safe-action";
 import { CreateCard } from "./schema";
+import { createAuditLog } from "@/lib/create-audit-log";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
 
 
@@ -58,6 +60,13 @@ card = await db.card.create({
     listId,
     order: newOrder
   }
+})
+
+await createAuditLog({
+  entityId: card.id,
+  entityTitle: card.title,
+  entityType: ENTITY_TYPE.CARD,
+  action: ACTION.CREATE
 })
 
 } catch (error) {
