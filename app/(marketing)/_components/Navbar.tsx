@@ -16,7 +16,7 @@ export const Navbar = () => {
 </Button>
 <Button size={"sm"} asChild>
 <Link href={"/sign-up"}>
-    Get UCU BBUC Project Hub for free
+    Get BBUC ProjectHub for free
   </Link>
 </Button>
 </div>

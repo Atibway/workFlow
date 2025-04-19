@@ -1,5 +1,5 @@
 
 export const siteConfig = {
-    name: "WorkNest",
+    name: "ProjectHub",
     description: "Collaborate, manage projects, and reach new productivity peaks"
 }
