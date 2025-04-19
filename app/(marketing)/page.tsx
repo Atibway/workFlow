@@ -1,4 +1,4 @@
-import { ClipboardCheck, GraduationCap } from "lucide-react";
+import { ClipboardCheck } from "lucide-react";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
