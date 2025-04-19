@@ -8,6 +8,7 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -22,8 +23,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: [
     {
-      url: "/logo.svg",
-      href: "/logo.svg"
+      url: "/logo2.png",
+      href: "/logo2.png"
     }
   ]
 };

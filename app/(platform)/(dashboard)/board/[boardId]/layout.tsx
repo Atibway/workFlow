@@ -8,7 +8,6 @@ import { BoardNavbar } from "./_components/BoardNavbar";
 
 
 
-
 export async function generateMetadata({
     params,
 }:{

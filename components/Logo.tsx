@@ -12,7 +12,7 @@ export const Logo = () => {
     <Link href={"/"}>
 <div className="hover:opacity-75 transition md:items-center gap-x-2 hidden md:flex">
     <Image
-    src={"/logo.svg"}
+    src={"/logo2.png"}
     alt="logo"
     height={30}
     width={30}
@@ -20,7 +20,7 @@ export const Logo = () => {
  <p className={cn("text-lg text-neutral-700 ",
     headingFont.className
  )}>
-    WorkNest
+    BBUC Project Hub
  </p>
 </div>
     </Link>
